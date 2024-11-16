@@ -21,83 +21,63 @@
     <header class="text-gray-600 body-font">
         <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
             <a href="https://byteblasterhack2skill.vercel.app/#home" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-                <span class="ml-3 text-xl">Resourcio</span>
+                <span class="ml-3 text-xl">Neural
+                    Learn</span>
             </a>
             <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-                <a href="/" class="mr-5 hover:text-gray-900">Home</a>
+                <a href="/" class="mr-5 hover:text-gray-900"><b>Home</b></a>
                 <a href="/dashboard" class="mr-5 hover:text-gray-900"></a>
             </nav>
         </div>
     </header>
 
-    <section class="text-gray-600 body-font">
-        <div class="container mx-auto flex md:flex-row flex-col items-center">
-            <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-                <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Machine Learning Project
-                    <br class="hidden lg:inline-block">Udemy Course Recommendation System
+    <section class="hero-section">
+        <div class="container mx-auto flex flex-wrap items-center">
+            <div class="text-content lg:w-1/2 w-full text-center lg:text-left">
+                <h1 class="text-5xl font-bold mb-6 text-gray-900 leading-snug">
+                    Machine Learning Project <br> Udemy Course Recommendation System
                 </h1>
-                <p class="mb-8 leading-relaxed">We will analyze flight fare prediction using a machine learning dataset by applying key exploratory data analysis techniques. Based on features such as airline type, arrival time, departure time, flight duration, source, and destination, we will generate predictions about flight prices.</p>
+                <p class="text-lg text-gray-600 mb-8">
+                    We will analyze flight fare prediction using a machine learning dataset by applying key exploratory data analysis techniques. Based on features such as airline type, arrival time, departure time, flight duration, source, and destination, we will generate predictions about flight prices.
+                </p>
             </div>
-            <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-                <img class="object-cover object-center rounded" alt="hero" src="{{ url_for('static', filename='img/bg7.jpg') }}">
+            <div class="image-content lg:w-1/2 w-full text-center">
+                <img class="rounded-lg shadow-lg max-w-full mx-auto" alt="Machine Learning" src="{{ url_for('static', filename='img/bg7.jpg') }}">
             </div>
         </div>
     </section>
 
-    <main role="main">
-        <section class="jumbotron text-center">
-            <div class="container">
-                <h4 class="jumbotron-heading">Enter The Name of the Course for Recommendations</h4>
-                <div class="form-floating my-4">
-                    <form action="/" method="POST">
-                        <div class="mb-3">
-                            <input name="course" type="text" class="form-control" id="course">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Recommend</button>
-                    </form>
-                </div>
-                {% if showtitle %}
-                    <h4 class="jumbotron-heading">Recommendations for Course <span style="color: red; font-size:1.5rem;">"{{ coursename }}"</span> are shown below</h4>
-                {% endif %}
-            </div>
-        </section>
-
-        <div class="album py-5 bg-light">
-            <div class="container">
-                {% if showerror %}
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">Seems like the course for {{ coursename }} is not available currently. We'll report it to the Course Administrator for uploading the course :)</p>
-                            <a href="/" class="btn btn-primary">Home Page</a>
-                        </div>
-                    </div>
-                {% endif %}
-
-                <div class="row">
-                    {% for course in coursemap %}
-                        <div class="col-md-4">
-                            <div class="card mb-4 shadow-sm">
-                                <div class="card-body bg-dark">
-                                    <p class="card-text" style="color:white;">{{ course }}</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                            <a href="{{ coursemap[course] }}" target="_blank" class="btn btn-outline-danger" style="color: white;">View Course</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
+    <section class="welcome-section bg-dark text-white py-10 text-center">
+        <div class="container">
+            <h2 class="text-4xl font-semibold mb-4">Welcome to Course Recommendations</h2>
+            <p class="text-lg mb-6">Discover the best courses tailored for you.</p>
+            <form action="/" method="POST" class="flex flex-col md:flex-row justify-center items-center gap-4">
+                <input type="text" name="course" placeholder="Enter course name" class="form-control w-full md:w-1/2 rounded-md px-4 py-2">
+                <button type="submit" class="btn btn-primary w-full md:w-auto px-6 py-2 rounded-md">Recommend</button>
+            </form>
         </div>
-    </main>
+    </section>
+
+    <section class="container py-5">
+        <h2 class="text-center mb-4"><b>Recommended Courses</b></h2>
+        <div class="row">
+            {% for course in coursemap %}
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body bg-light">
+                        <h5 class="card-title">{{ course }}</h5>
+                        <a href="{{ coursemap[course] }}" target="_blank" class="btn btn-primary">View Course</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
 
     <footer class="text-gray-600 body-font">
         <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
             <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-                <span class="ml-3 text-xl">Course Recommendation</span>
+                <span class="ml-3 text-xl"></span>
             </a>
         </div>
     </footer>
