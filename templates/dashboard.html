@@ -35,79 +35,84 @@
         </div>
     </nav>
 
+    <!-- Updated Dashboard Container -->
     <div class="container mt-4">
+        <h1 class="text-center mb-4">Dashboard</h1>
         <div class="row">
             <!-- Number of Subscribers Domain Wise -->
             <div class="col-md-6 col-lg-4">
-                <div class="card-body">
-                    <label>Number of Subscribers Domain Wise</label>
-                    <div class="chart-container">
-                        <canvas id="chart"></canvas>
+                <div class="card shadow-sm">
+                    <div class="card-header text-center">Subscribers by Domain</div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="chart"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Number of Courses Level Wise -->
             <div class="col-md-6 col-lg-4">
-                <div class="card-body">
-                    <label>Number of Courses Level Wise</label>
-                    <div class="chart-container">
-                        <canvas id="chart2"></canvas>
+                <div class="card shadow-sm">
+                    <div class="card-header text-center">Courses by Level</div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="chart2"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Number of Subscribers Year Wise -->
             <div class="col-md-6 col-lg-4">
-                <div class="card-body">
-                    <label>Number of Subscribers Year Wise</label>
-                    <div class="chart-container">
-                        <canvas id="chart3"></canvas>
+                <div class="card shadow-sm">
+                    <div class="card-header text-center">Subscribers by Year</div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="chart3"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Profit Year Wise -->
             <div class="col-md-6 col-lg-4">
-                <div class="card-body">
-                    <label>Profit Gained Year Wise</label>
-                    <div class="chart-container">
-                        <canvas id="chart4"></canvas>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Profit Month Wise -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card-body">
-                    <label>Profit Earned Month Wise</label>
-                    <div class="chart-container">
-                        <canvas id="chart5"></canvas>
+                <div class="card shadow-sm">
+                    <div class="card-header text-center">Profit by Year</div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="chart4"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Subscribers Count Month Wise -->
             <div class="col-md-6 col-lg-4">
-                <div class="card-body">
-                    <label>Subscribers Count Month Wise</label>
-                    <div class="chart-container">
-                        <canvas id="chart6"></canvas>
+                <div class="card shadow-sm">
+                    <div class="card-header text-center">Subscribers by Month</div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="chart5"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Number of Subscribers enrolled per subject category -->
+            <!-- Subscribers Count by Subject -->
             <div class="col-12">
-                <div class="card-body">
-                    <label>Number of Subscribers enrolled per subject category</label>
-                    <div class="chart-container">
-                        <canvas id="chart7"></canvas>
+                <div class="card shadow-sm">
+                    <div class="card-header text-center">Subscribers by Subject</div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="chart7"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- End of Updated Dashboard Container -->
 
     <div id="valuecounts" style="display:none;">{{ valuecounts|tojson|safe }}</div>
     <div id="levelcounts" style="display:none;">{{ levelcounts|tojson|safe }}</div>
